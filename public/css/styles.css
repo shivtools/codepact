@@ -51,3 +51,29 @@ ul{
 	list-style: none;
 }
 
+#links{
+
+}
+
+#links
+{ 
+	height: 1em;
+	width: 100%;
+} 
+
+.links{
+	float: right;
+	padding-right: 15px;
+}
+
+#links li
+{ 
+	display:inline; 
+}  
+
+#links li a{
+	color: #fff;
+	font-size: 1.5em;
+	padding-left: 15px;
+}
+
