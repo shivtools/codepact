@@ -1,0 +1,5 @@
+{
+    "CONNECTION_URL": "mongodb://shiv:SINO007@ds017432.mlab.com:17432/codepact",
+    "GITHUB_CLIENT_ID": "e42c0a775eba9d0149a7",
+    "GITHUB_CLIENT_SECRET": "3dafd7cd66c084992b866dbd2111501d80ab403e"
+}
