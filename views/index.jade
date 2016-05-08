@@ -1,5 +1,17 @@
-extends layout
+doctype html
+html(lang="en")
+    head
+        title= "rollout"
+        link(href="/css/bootstrap.min.css" type="text/css" rel="stylesheet")
+        link(href="/css/nprogress.css" type="text/css" rel="stylesheet")
+        link(href="/css/styles.css" type="text/css" rel="stylesheet")
+    body
+        #wrapper.container
+            h1.lead Well hi there..
 
-block content
-  h1= title
-  p Welcome to #{title}
+        script(type="text/javascript" src="/js/frameworks/jquery-2.1.4.min.js")
+        script(type="text/javascript" src="/js/frameworks/bootstrap.min.js")
+        script(type="text/javascript" src="/js/libs/nprogress.js")
+        script(type="text/javascript" src="/js/libs/noty.min.js")
+        script(type="text/javascript" src="/js/logic/system.js")
+        script(type="text/javascript" src="/js/logic/main.js")
