@@ -1,4 +1,4 @@
-# <CodePact/>
+# < CodePact />
 
 Make a pact, set your goals, and hold yourself accountable for sticking to them.
 
