@@ -43,6 +43,24 @@ Users.prototype.GetUserGithub = function(params, callback) {
 }
 
 
+Users.prototype.RegisterUser = function(params, callback) {
+    var userSchema = params;
+
+    var userObj = params.userObj;
+    var githubObj = params.githubObj;
+
+    var user = this.mongo.insert('users', userObj, function(err, results) {
+        if (err) {
+            callback(err, null);
+        } else {
+            callback(null, {
+                "profile": userObj,
+                "github": githubObj
+            });
+        }
+    });
+}
+
 // GETs user pact
 Users.prototype.GetUserPact = function(params, callback) {
     var userid = params.user_id;
