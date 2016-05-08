@@ -56,10 +56,10 @@ ul{
 }
 
 #links
-{ 
+{
 	height: 1em;
 	width: 100%;
-} 
+}
 
 .links{
 	float: right;
@@ -67,13 +67,16 @@ ul{
 }
 
 #links li
-{ 
-	display:inline; 
-}  
+{
+	display:inline;
+}
 
 #links li a{
-	color: #fff;
 	font-size: 1.5em;
 	padding-left: 15px;
 }
 
+#wrapper {
+    background-color: #fff;
+    margin-top: 60px;
+}
