@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 /** routes objects */
 var index = require('./routes/index');
-var statuses = require('./routes/statuses');
+var users = require('./routes/users');
 
 var app = express();
 
@@ -32,7 +32,7 @@ app.use(function(req, res, next) {
  * App Defined Mounted Routes
  */
 app.use('/', index);
-app.use('/statues', statuses);
+app.use('/users', users);
 
 
 
