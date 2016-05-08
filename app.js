@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 /** routes objects */
 var index = require('./routes/index');
 var users = require('./routes/users');
+var setup = require('./routes/setup');
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use(function(req, res, next) {
  */
 app.use('/', index);
 app.use('/users', users);
+app.use('/setup', setup);
 
 
 

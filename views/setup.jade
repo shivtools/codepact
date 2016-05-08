@@ -1,0 +1,43 @@
+doctype html
+html(lang="en")
+	head
+		title= "codepact"
+		link(href="/css/bootstrap.min.css" type="text/css" rel="stylesheet")
+		link(href="/css/nprogress.css" type="text/css" rel="stylesheet")
+		link(href="/css/styles.css" type="text/css" rel="stylesheet")
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+	body
+		h1#main="Settings"
+		.checkbox
+			h2 Frequency
+			ul#list
+				li
+					input(type='checkbox', name='daily', value='test')
+					| Daily
+				li
+					input(type='checkbox', name='weekly', value='test')
+					| Weekly
+			h2 Charity
+			ul#list
+				li
+					input(type='checkbox', name='one', value='test')
+					| Answers for Autism
+				li
+					input(type='checkbox', name='two', value='test')
+					| The Nature Conservancy
+				li
+					input(type='checkbox', name='three', value='test')
+					| ASPCA
+				li
+					input(type='checkbox', name='four', value='test')
+					| Code.org
+				li
+					input(type='checkbox', name='five', value='test')
+					| Computers Advancing Education
+				li
+					input(type='checkbox', name='six', value='test')
+					| Earthworks
+			h2 # lines of code
+				br
+				input#input-box(type="text", name="lines", placeholder="Enter # lines of code")
