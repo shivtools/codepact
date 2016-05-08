@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+	head
+		title= "codepact"
+		link(href="/css/bootstrap.min.css" type="text/css" rel="stylesheet")
+		link(href="/css/nprogress.css" type="text/css" rel="stylesheet")
+		link(href="/css/styles.css" type="text/css" rel="stylesheet")
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="js/frameworks/jquery.knob.min.js"></script>
+		script.
+			$(".dial").knob({
+				'min': 0,
+				'max': 100,
+				'width': 300,
+				'height': 300,
+				'change' : function (v) { console.log(v); }
+			});
+
+	body
+		h1#main="Profile"
+		.checkbox
+			h3 Current Status
+			<input type="text" value="75" class="dial">

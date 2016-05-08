@@ -6,6 +6,13 @@ html(lang="en")
 		link(href="/css/nprogress.css" type="text/css" rel="stylesheet")
 		link(href="/css/styles.css" type="text/css" rel="stylesheet")
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+		script(type="text/javascript" src="https://github.com/aterrien/jQuery-Knob/blob/master/js/jquery.knob.js")
+		<input type="text" value="75" class="dial">
+		<script>
+		    $(function() {
+		        $(".dial").knob();
+		    });
+		</script>
 
 	body
 		h1#main="Settings"
