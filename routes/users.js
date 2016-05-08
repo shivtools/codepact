@@ -71,4 +71,28 @@ router.get('/:user_id', function(req, res) {
 });
 
 
+/** POST user info for register */
+// router.post('/register', function(req, res) {
+//     var user = new Users(req);
+
+//     var userObj = {
+//         "user_id": "",
+//         "firstName": req.query.firstName,
+//         "lastName": req.query.lastName,
+//         "email": req.query.email,
+//         "phone": req.query.phone
+//     }
+
+//     user.RegisterUser({"params": userObj}, function(err, rows) {
+//         if (err)
+//             data = { "status": false, "message": err };
+//         else
+//             data = { "status": true, "data": rows };
+
+//         res.setHeader('Content-Type', 'application/json');
+//         res.send(JSON.stringify(data));
+//     });
+// });
+
+
 module.exports = router;
