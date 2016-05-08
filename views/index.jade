@@ -5,9 +5,19 @@ html(lang="en")
         link(href="/css/bootstrap.min.css" type="text/css" rel="stylesheet")
         link(href="/css/nprogress.css" type="text/css" rel="stylesheet")
         link(href="/css/styles.css" type="text/css" rel="stylesheet")
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+
     body
-        #wrapper.container
-            h1.lead Well hi there..
+        h1#main="<CodePact/>"
+        #jumbotron
+            .container#home
+                h2#main="Set yourself or your team a coding target. You make it, you win. You don't make it, humanity wins."
+                br
+                a(href="/auth/github")
+                    button#button.btn.btn-primary
+                        span Sign in with Github 
+                            i#icon.fa.fa-github-square.fa-2x
 
         script(type="text/javascript" src="/js/frameworks/jquery-2.1.4.min.js")
         script(type="text/javascript" src="/js/frameworks/bootstrap.min.js")

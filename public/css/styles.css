@@ -1,0 +1,26 @@
+body, html {
+    height: 100%;
+}
+
+#jumbotron {
+	padding-top: 10%;
+	height: 100%;
+	width: 100%;
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    border-radius: 0;
+    /*padding-bottom: 80px;*/
+    height: 500px;
+}
+
+body{
+	background: url('https://download.unsplash.com/photo-1429051883746-afd9d56fbdaf') no-repeat;
+    background-size: 100%;
+}
+
+#main{
+	text-align: center;
+	color: #fff;
+}
+
