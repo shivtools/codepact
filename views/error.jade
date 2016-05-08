@@ -1,6 +1,18 @@
-extends layout
+doctype html
+html(lang="en")
+    head
+        title= "rollout"
+        link(href="/css/bootstrap.min.css" type="text/css" rel="stylesheet")
+        link(href="/css/nprogress.css" type="text/css" rel="stylesheet")
+        link(href="/css/styles.css" type="text/css" rel="stylesheet")
+    body
+        h1= message
+        h2= error.status
+        pre #{error.stack}
 
-block content
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+        script(type="text/javascript" href="/js/frameworks/jquery-2.1.4.min.js")
+        script(type="text/javascript" href="/js/frameworks/bootstrap.min.js")
+        script(type="text/javascript" href="/js/libs/nprogress.min.js")
+        script(type="text/javascript" href="/js/libs/noty.min.js")
+        script(type="text/javascript" href="/js/logic/system.js")
+        script(type="text/javascript" href="/js/logic/main.js")
