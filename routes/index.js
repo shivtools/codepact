@@ -6,16 +6,17 @@ var config = require('../configs/config');
 
 var Users = require('../models/Users.js');
 
-
 var session = require('express-session');
 router.use(session({secret: "asdaskldanksld"}));
 router.use(passport.initialize());
 router.use(passport.session());
 
+
 passport.serializeUser(function(user, done) {
     console.log("user serial", user);
     done(null, user);
 });
+
 
 passport.deserializeUser(function(user, done) {
     var userClass = new Users();
@@ -73,9 +74,60 @@ passport.use(new GithubStrategy({
 
 
 router.get('/auth/github', passport.authenticate('github'));
-router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), function(req, res) {
-    console.log(req);
-    res.redirect('/profile');
+router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/' }), function(req, res) {
+    console.log("NEW LINK", '/profile/' + req.user.id);
+    res.redirect('/profile/' + req.user.id);
+});
+
+
+/* GET base homepage. */
+router.get('/profile/:user_id', function(req, res, next) {
+    var user = new Users(req);
+    var user_id = req.params.user_id;
+    var userObj = {};
+
+    var userProfile = new Promise(function(resolve, reject) {
+        user.GetUserProfile({"user_id": user_id}, function(err, rows) {
+            if (err) {
+                reject({ "status": false, "message": err });
+            } else {
+                userObj['profile'] = (rows.length>0) ? rows[0] : {};
+                delete userObj['profile']['_id'];
+                resolve('profile');
+            }
+        });
+    });
+
+    var userGithub = new Promise(function(resolve, reject) {
+        user.GetUserGithub({"user_id": user_id}, function(err, rows) {
+            if (err) {
+                reject({ "status": false, "message": err });
+            } else {
+                userObj['github'] = (rows.length>0) ? rows[0] : {};
+                delete userObj['github']['_id'];
+                delete userObj['github']['user_id'];
+                resolve('github');
+            }
+        });
+    });
+
+    var userPacts = new Promise(function(resolve, reject) {
+        user.GetUserPact({"user_id": user_id}, function(err, rows) {
+            if (err) {
+                reject({ "status": false, "message": err });
+            } else {
+                userObj['pacts'] = (rows.length>0) ? rows[0] : {};
+                delete userObj['pacts']['_id'];
+                delete userObj['pacts']['user_id'];
+                resolve('pacts');
+            }
+        });
+    });
+
+
+    Promise.all([userProfile, userGithub, userPacts]).then(function(results) {
+        res.render('profile', {"user": userObj});
+    });
 });
 
 
@@ -89,10 +141,6 @@ router.get('/', function(req, res, next) {
 router.get('/robots.txt', function(req, res, next) {
     res.type('text/plain');
     res.send("User-agent: *\nDisallow: /");
-});
-
-router.get('/profile', function(req, res, next){
-	res.render('profile');
 });
 
 module.exports = router;
