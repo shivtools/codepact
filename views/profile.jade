@@ -21,11 +21,13 @@ html(lang="en")
 		#wrapper.container
 			h1#main_brand.lead=""
 			.checkbox
-				h3 Current Status
+				<div>Username: <span class="output" id="username_i"></span></div>
+				<div>Current Lines written: <span class="output" id="curr_lines_i"></span></div>
+				<div>Goals set for Weekly: <span class="output" id="goal_lines_i"></span></div>
+				<div>Stake set for Weekly: <span class="output" id="stake_lines_i"></span></div>
+				h2.lead="Current Status"
 				.progress
-					#progress_bar.progress-bar.progress-bar-success.active.progress-bar-striped(role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%") 70% goal met for Daily Pact
-						span#percent.sr-only
-							| 70% Complete
+					#progress_bar.progress-bar.progress-bar-success.active.progress-bar-striped(role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%")="70% goal met for Weekly Pact"
 
 		script.
 			var user_id = #{user['profile']['user_id']};
@@ -57,8 +59,12 @@ html(lang="en")
 						$('#progress_bar').attr('aria-valuenow', percentage);
 						$('#progress_bar').css({"width": percentage + "%"});
 						$('#percent').html(percentage + "% complete");
-
 						$('#main_brand').html(user.profile.firstName + " " + user.profile.lastName);
+
+						$('#username_i').html(user.github.username);
+						$('#curr_lines_i').html(user.github.curr_lines);
+						$('#goal_lines_i').html(user.pacts.weekly.goal_lines);
+						$('#stake_lines_i').html('$'+user.pacts.weekly.penalty_cost_dollars);
 
 						var lines_left = goal_lines-curr_lines;
 					},
