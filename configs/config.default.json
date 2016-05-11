@@ -1,0 +1,5 @@
+{
+    "CONNECTION_URL": "mongodb://user:passwd@host:18723/codepact",
+    "GITHUB_CLIENT_ID": "",
+    "GITHUB_CLIENT_SECRET": ""
+}
